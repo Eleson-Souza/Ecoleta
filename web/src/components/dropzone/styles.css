@@ -1,0 +1,31 @@
+.dropzone {
+    background-color: #a2c4e2;
+    margin-top: 20px;
+    border-radius: 6px;
+    height: 300px;
+    display: flex;
+}
+
+.dropzone p {
+    border: 1px solid #6e8497;
+    border-radius: 6px;
+    text-align: center;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: default;
+}
+
+.icon-upload {
+    color: rgb(97, 173, 97);
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.image {
+    width: 100%;
+}
