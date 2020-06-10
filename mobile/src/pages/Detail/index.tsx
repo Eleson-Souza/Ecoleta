@@ -16,7 +16,7 @@ interface Data {
   point: {
     image: string;
     image_url: string;
-    title: string;
+    name: string;
     email: string;
     whatsapp: string;
     city: string;
@@ -69,7 +69,7 @@ const Detail = () => {
 
                 <Image style={styles.pointImage} source={{ uri: data.point.image_url }} />
                 
-                <Text style={styles.pointName}>{data.point.title}</Text>
+                <Text style={styles.pointName}>{data.point.name}</Text>
                 <Text style={styles.pointItems}>
                   {data.items.map(item => item.title).join(', ')}
                 </Text>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   
     pointName: {
       color: '#322153',
-      fontSize: 28,
+      fontSize: 23,
       fontFamily: 'Ubuntu_700Bold',
       marginTop: 24,
     },
