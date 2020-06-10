@@ -11,8 +11,8 @@ const Home = () => {
   const Navigation = useNavigation();
 
   // direciona usuário para outra página (Points).
-  function handleNavigateToPoints() {
-    Navigation.navigate('Points');
+  function handleNavigateToPoints(uf: String, city: String) {
+    Navigation.navigate('Points', { uf, city });
   }
 
     return (
@@ -47,7 +47,7 @@ const Home = () => {
                   onChangeText={city => setCity(city)}
                 />
 
-                <RectButton style={styles.button} onPress={handleNavigateToPoints}>
+                <RectButton style={styles.button} onPress={() => handleNavigateToPoints(uf, city)}>
                   <View style={styles.buttonIcon}>
                     <Icon name="arrow-right" color="#fff" size={24} />
                   </View>

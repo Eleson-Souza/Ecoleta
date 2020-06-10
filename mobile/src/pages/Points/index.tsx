@@ -16,7 +16,7 @@ interface Item {
 
 interface Point {
     id: number;
-    name: string;
+    title: string;
     image: string;
     image_url: string;
     latitude: number;
@@ -67,13 +67,13 @@ const Points = () => {
     useEffect(() => {
         api.get('points', {
             params: {
-                city: 'Santos',
-                uf: 'SP',
-                items: [1,2,3,4,5,6]
+                city: routeParams.city,
+                uf: routeParams.uf,
+                items: selectedItems
             }
         }).then(response => {
             setPoints(response.data);
-            console.log(points);
+            console.log(selectedItems);
         });
     }, [selectedItems]);
 
@@ -114,8 +114,8 @@ const Points = () => {
                         initialRegion={{
                             latitude: InitialPosition[0],
                             longitude: InitialPosition[1],
-                            latitudeDelta: 0.014,
-                            longitudeDelta: 0.014,
+                            latitudeDelta: 0.12,
+                            longitudeDelta: 0.12,
                         }}
                         >
                             {points.map(point => (
@@ -125,7 +125,7 @@ const Points = () => {
                                     coordinate={{
                                         latitude: point.latitude,
                                         longitude: point.longitude,
-                                    }} 
+                                    }}
                                 >
                                     <View style={styles.mapMarkerContainer}>
                                         <Image 
@@ -133,7 +133,7 @@ const Points = () => {
                                             source={{ uri: point.image_url }} 
                                         />
                                         <Text style={styles.mapMarkerTitle}>
-                                            {point.name}
+                                            {point.title}
                                         </Text>
                                     </View>
                                 </Marker>  
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
       flex: 1,
       fontFamily: 'Roboto_400Regular',
       color: '#FFF',
-      fontSize: 13,
+      fontSize: 9,
       lineHeight: 23,
     },
   

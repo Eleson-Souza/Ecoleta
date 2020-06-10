@@ -16,7 +16,7 @@ interface Data {
   point: {
     image: string;
     image_url: string;
-    name: string;
+    title: string;
     email: string;
     whatsapp: string;
     city: string;
@@ -60,15 +60,16 @@ const Detail = () => {
     }
 
     return (
-        <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
+      {console.log(data)}
             <View style={styles.container}>
                 <TouchableOpacity onPress={handleNavigateBack}>
                     <Icon name="arrow-left" size={20} color="#34cb79" />
                 </TouchableOpacity>
 
                 <Image style={styles.pointImage} source={{ uri: data.point.image_url }} />
-
-                <Text style={styles.pointName}>{data.point.name}</Text>
+                
+                <Text style={styles.pointName}>{data.point.title}</Text>
                 <Text style={styles.pointItems}>
                   {data.items.map(item => item.title).join(', ')}
                 </Text>
